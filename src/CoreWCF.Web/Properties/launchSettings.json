@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "CoreWCF.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:58963/TheService.svc?wsdl=wsdl0",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58963;http://localhost:58964"
+    }
+  }
+}

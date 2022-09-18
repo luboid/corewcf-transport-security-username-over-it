@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\CoreWCF.Configuration\CoreWCF.Configuration.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Banker.Api.Client" Version="1.2.0" />
+		<PackageReference Include="CoreWCF.Primitives" Version="1.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+	</ItemGroup>
+</Project>
