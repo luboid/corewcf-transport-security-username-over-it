@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using CoreWCF.Web.Middleware;
 using CoreWCF.WebService;
 using CoreWCF.WebService.Configuration;
+using CoreWCF.WebService.Extensions;
 
 namespace CoreWCF.Web
 {
@@ -100,11 +101,8 @@ namespace CoreWCF.Web
 
                 serviceBuilder.ConfigureServiceHostBase<ITheService>((host) =>
                 {
-                    var srvCredentials = new ServiceCredentials();
-                    srvCredentials.UserNameAuthentication.UserNamePasswordValidationMode = UserNamePasswordValidationMode.Custom;
-                    srvCredentials.UserNameAuthentication.CustomUserNamePasswordValidator = app.ApplicationServices.GetRequiredService<UserNamePasswordValidator>();
-
-                    host.Description.Behaviors.Add(srvCredentials);
+                    host.ApplyUserValidator(app.ApplicationServices.GetRequiredService<CoreWCF.WebService.UserNamePasswordValidator>());
+                    host.ApplyErrorHandler(app.ApplicationServices.GetRequiredService<IErrorHandler>());
                 });
 
                 serviceBuilder.AddService<ITheServiceAsync>(options =>
@@ -116,11 +114,8 @@ namespace CoreWCF.Web
 
                 serviceBuilder.ConfigureServiceHostBase<ITheServiceAsync>((host) =>
                 {
-                    var srvCredentials = new ServiceCredentials();
-                    srvCredentials.UserNameAuthentication.UserNamePasswordValidationMode = UserNamePasswordValidationMode.Custom;
-                    srvCredentials.UserNameAuthentication.CustomUserNamePasswordValidator = app.ApplicationServices.GetRequiredService<UserNamePasswordValidator>();
-
-                    host.Description.Behaviors.Add(srvCredentials);
+                    host.ApplyUserValidator(app.ApplicationServices.GetRequiredService<CoreWCF.WebService.UserNamePasswordValidator>());
+                    host.ApplyErrorHandler(app.ApplicationServices.GetRequiredService<IErrorHandler>());
                 });
 
                 var serviceMetadataBehavior = app.ApplicationServices.GetRequiredService<ServiceMetadataBehavior>();

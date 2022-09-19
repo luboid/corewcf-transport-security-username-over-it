@@ -5,6 +5,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\CoreWCF.Configuration\CoreWCF.Configuration.csproj" />
+		<ProjectReference Include="..\CoreWCF.UserNamePasswordValidator\CoreWCF.UserNamePasswordValidator.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Banker.Api.Client" Version="1.2.0" />

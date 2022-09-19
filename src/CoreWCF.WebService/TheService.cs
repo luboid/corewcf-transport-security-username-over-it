@@ -7,7 +7,6 @@ using CoreWCF.WebService.Configuration;
 
 namespace CoreWCF.WebService
 {
-    [ErrorServiceBehaviour(typeof(IErrorHandler))]
     [ServiceBehavior(Namespace = Namespaces.Data, InstanceContextMode = InstanceContextMode.PerCall)]
     public sealed class TheService : ITheService, ITheServiceAsync, IDisposable
     {
